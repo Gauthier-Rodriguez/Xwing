@@ -1,5 +1,6 @@
 import { forwardRef, useMemo } from 'react';
 import { Uniform } from 'three';
+import * as THREE from 'three';
 import { Effect } from 'postprocessing';
 import { turbo } from './controls';
 
@@ -42,7 +43,7 @@ class MotionBlurImpl extends Effect {
     })
   }
 
-  update(renderer, inputBuffer, deltaTime) {
+  update(_renderer: THREE.WebGLRenderer, _inputBuffer: THREE.WebGLRenderTarget, _deltaTime: number) {
     this.uniforms.get('strength')!.value = turbo;
   }
 }
